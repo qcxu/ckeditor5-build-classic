@@ -7,13 +7,11 @@
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
-import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
-import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
@@ -37,13 +35,11 @@ export default class ClassicEditor extends ClassicEditorBase {}
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
 	Essentials,
-	UploadAdapter,
 	Autoformat,
 	Bold,
 	Italic,
 	BlockQuote,
 	CKFinder,
-	EasyImage,
 	Heading,
 	Image,
 	ImageCaption,
@@ -88,11 +84,9 @@ ClassicEditor.defaultConfig = {
 	},
 	image: {
 		toolbar: [
-			'imageStyle:inline',
-			'imageStyle:block',
-			'imageStyle:side',
-			'|',
-			'imageTextAlternative'
+			'imageTextAlternative',
+			'imageStyle:full',
+			'imageStyle:side'
 		]
 	},
 	table: {
