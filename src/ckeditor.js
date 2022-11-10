@@ -15,7 +15,7 @@ import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
-import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
+// import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
 import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
@@ -30,6 +30,8 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 // import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter';
+import ImageResizeEditing from '@ckeditor/ckeditor5-image/src/imageresize/imageresizeediting';
+import ImageResizeButtons from '@ckeditor/ckeditor5-image/src/imageresize/imageresizebuttons';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -44,7 +46,7 @@ ClassicEditor.builtinPlugins = [
 	Heading,
 	Image,
 	ImageCaption,
-	ImageStyle,
+	// ImageStyle,
 	ImageToolbar,
 	AutoImage,
 	ImageUpload,
@@ -58,7 +60,9 @@ ClassicEditor.builtinPlugins = [
 	TableToolbar,
 	TextTransformation,
 	// Base64UploadAdapter,
-	SimpleUploadAdapter
+	SimpleUploadAdapter,
+	ImageResizeEditing,
+	ImageResizeButtons
 ];
 
 // Editor configuration.
@@ -87,8 +91,29 @@ ClassicEditor.defaultConfig = {
 	image: {
 		toolbar: [
 			'imageTextAlternative',
-			'imageStyle:full',
-			'imageStyle:side'
+			// 'imageStyle:full',
+			// 'imageStyle:side',
+			'resizeImage:200',
+			'resizeImage:600',
+			'resizeImage:original',
+		],
+		resizeUnit: 'px',
+		resizeOptions: [
+			{
+				name: 'resizeImage:200',
+				icon: 'medium',
+				value: '200'
+			},
+			{
+				name: 'resizeImage:600',
+				icon: 'large',
+				value: '600'
+			},
+			{
+				name: 'resizeImage:original',
+				icon: 'original',
+				value: null
+			}
 		]
 	},
 	table: {
